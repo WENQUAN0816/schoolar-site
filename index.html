@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wen Quan - Architect & Academic Researcher</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.4;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 10px;
+        }
+        
+        .header-info {
+            flex: 1;
+        }
+        
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 5px;
+        }
+        
+        .title {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .contact-info a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .photo {
+            width: 120px;
+            height: 150px;
+            margin-left: 20px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid #ddd;
+        }
+        
+        .section {
+            margin: 25px 0;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #003366;
+            border-bottom: 1px solid #003366;
+            padding-bottom: 3px;
+            margin-bottom: 15px;
+        }
+        
+        .subsection-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #0066cc;
+            margin: 15px 0 10px 0;
+        }
+        
+        .content {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .job-entry, .education-entry, .project-entry {
+            margin-bottom: 15px;
+        }
+        
+        .job-title, .degree-title, .project-title {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .date {
+            float: right;
+            font-weight: bold;
+            color: #666;
+        }
+        
+        .institution, .organization {
+            font-style: italic;
+            color: #666;
+        }
+        
+        .publication {
+            margin-bottom: 8px;
+            text-indent: -20px;
+            margin-left: 20px;
+        }
+        
+        .publication .authors {
+            font-weight: bold;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        ul li {
+            margin-bottom: 3px;
+        }
+        
+        .personal-info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .personal-info-table td {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+        
+        .personal-info-table td:nth-child(odd) {
+            font-weight: bold;
+            background-color: #f9f9f9;
+            width: 25%;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .photo {
+                margin: 15px 0 0 0;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .date {
+                float: none;
+                display: block;
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-info">
+            <div class="name">Wen Quan</div>
+            <div class="title">Architect & Academic Researcher</div>
+            <div class="contact-info">
+                <a href="mailto:wenquan@hngm.edu.cn">wenquan@hngm.edu.cn</a> • 
+                <a href="mailto:wenquan@student.usm.my">wenquan@student.usm.my</a><br>
+                +86 156-4900-6328 (China) • +60 12-938-6817 (Malaysia)<br>
+                Zhengzhou, Henan Province, People's Republic of China<br>
+                <strong>ORCID:</strong> <a href="https://orcid.org/0009-0005-3975-8104">0009-0005-3975-8104</a>
+            </div>
+        </div>
+        <img src="photo.png" alt="Wen Quan" class="photo">
+    </div>
+
+    <div class="section">
+        <div class="section-title">Professional Summary</div>
+        <div class="content">
+            Accomplished architect and academic researcher specializing in aging-in-place design innovation, healthcare-integrated facility systems, traditional settlement preservation, and AI-driven architectural design solutions. Ph.D. candidate in Architecture with demonstrated expertise in cross-disciplinary research combining artificial intelligence technologies with evidence-based design solutions for elderly care environments and cultural heritage preservation. Proven track record in securing competitive government research grants and implementing research findings into real-world architectural practice through innovative AI-assisted design methodologies.
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Personal Information</div>
+        <table class="personal-info-table">
+            <tr>
+                <td>Date of Birth:</td>
+                <td>August 16, 1989</td>
+                <td>Nationality:</td>
+                <td>China</td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>Male</td>
+                <td>Professional Membership:</td>
+                <td>China Architecture Society</td>
+            </tr>
+            <tr>
+                <td>Research Focus:</td>
+                <td>AI & Aging-in-Place Design</td>
+                <td>Current Status:</td>
+                <td>Ph.D. Candidate & Lecturer</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Education</div>
+        <div class="education-entry">
+            <div class="degree-title">Ph.D. in Architecture (In Progress) <span class="date">2021–Present</span></div>
+            <div class="institution">School of Housing, Building and Planning, Universiti Sains Malaysia, Malaysia</div>
+        </div>
+        <div class="education-entry">
+            <div class="degree-title">Master of Engineering, Architecture <span class="date">2014–2017</span></div>
+            <div class="institution">Henan University of Technology, China | Specialization: Architectural Design and Theory</div>
+        </div>
+        <div class="education-entry">
+            <div class="degree-title">Bachelor of Engineering, Architecture <span class="date">2009–2014</span></div>
+            <div class="institution">Anyang Normal University, China | Dual Degree Program: Bachelor of Education</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Professional Experience</div>
+        
+        <div class="subsection-title">Current Positions</div>
+        <div class="job-entry">
+            <div class="job-title">Secretary, Postgraduate Research Workshop Committee <span class="date">2025–Present</span></div>
+            <div class="organization">School of Housing, Building and Planning, Universiti Sains Malaysia</div>
+        </div>
+        <div class="job-entry">
+            <div class="job-title">Academic Committee Member & Senior Project Review Expert <span class="date">2020–Present</span></div>
+            <div class="organization">Zhongren Art Museum, Sichuan Province, China</div>
+        </div>
+
+        <div class="subsection-title">Previous Academic Positions</div>
+        <div class="job-entry">
+            <div class="job-title">Lecturer <span class="date">2021</span></div>
+            <div class="organization">Henan Industry and Trade Vocational College | Leave of Absence for Doctoral Studies</div>
+        </div>
+        <div class="job-entry">
+            <div class="job-title">Part-time Lecturer <span class="date">2019–2021</span></div>
+            <div class="organization">Henan University of Animal Husbandry and Economy</div>
+        </div>
+        <div class="job-entry">
+            <div class="job-title">Lecturer <span class="date">2017–2021</span></div>
+            <div class="organization">Easton International Art College, Zhengzhou University of Light Industry</div>
+        </div>
+
+        <div class="subsection-title">Early Career Experience</div>
+        <div class="job-entry">
+            <div class="job-title">Research Associate <span class="date">2017</span></div>
+            <div class="organization">Green Building Research Institute, Henan Academy of Building Research</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Research Portfolio</div>
+        
+        <div class="subsection-title">Principal Investigator</div>
+        <div class="project-entry">
+            <div class="project-title">Adaptive Renovation Strategies for Existing Long-term Care Facilities under COVID-19 Safety Protocols <span class="date">2021</span></div>
+            <div class="organization">Provincial Government Research Grant, Henan Department of Education | Project No. 2021-ZDJH-433</div>
+        </div>
+        <div class="project-entry">
+            <div class="project-title">Comprehensive Aging-in-Place Renovation Framework for Legacy Residential Communities in Henan Province <span class="date">2022</span></div>
+            <div class="organization">Provincial Social Science Research Grant, Henan Province | Project No. SKL-2022-608</div>
+        </div>
+        <div class="project-entry">
+            <div class="project-title">Innovative Universal Design Strategies for New Community Development in Henan Province <span class="date">2018</span></div>
+            <div class="organization">Provincial Social Science Research Grant, Henan Province | Project No. SKL-2018-490 (First Prize Award)</div>
+        </div>
+        <div class="project-entry">
+            <div class="project-title">Interior Environment Design Strategies for Hospital Outpatient Departments in the Era of Telemedicine <span class="date">2020</span></div>
+            <div class="organization">Provincial Social Science Research Grant, Henan Province | Project No. SKL-2020-1566</div>
+        </div>
+        <div class="project-entry">
+            <div class="project-title">Integrated Healthcare-Housing Model for Community-Based Senior Living Facilities in Zhengzhou <span class="date">2018</span></div>
+            <div class="organization">Municipal Research Grant, Zhengzhou Social Science Federation | Project No. JX20190146</div>
+        </div>
+
+        <div class="subsection-title">Co-Investigator</div>
+        <div class="project-entry">
+            <div class="project-title">Sustainable Construction Waste Management and Resource Recovery Research <span class="date">2020</span></div>
+            <div class="organization">Provincial Education Research Grant, Henan Province | Project No. 2020-ZDJH-477</div>
+        </div>
+        <div class="project-entry">
+            <div class="project-title">Cultural Influence of Northern Buddhism on Tang Dynasty Furniture Design <span class="date">2021</span></div>
+            <div class="organization">Provincial Education Research Grant, Henan Province | Project No. 2021-ZDJH-431</div>
+        </div>
+        <div class="project-entry">
+            <div class="project-title">Spatial Planning and Design Framework for Community Early Childhood Centers in Zhengzhou <span class="date">2021</span></div>
+            <div class="organization">Provincial Education Research Grant, Henan Province | Project No. 2021-ZDJH-429</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Publications</div>
+        <div class="publication">
+            <span class="authors">Wen, Q., Ismail, M., & Nasir, M. H. B. A.</span> (2024). Developing an integrated framework for evaluating community spatial resilience in Zhengzhou in the post-pandemic era. <em>Malaysia Planning</em>. (Scopus, Article In Press)
+        </div>
+        <div class="publication">
+            <span class="authors">Wen, Q., Ismail, M., & Nasir, M. H. B. A.</span> (2024). Enhancing predictive models of urban community resilience: An application of the fuzzy support vector machine algorithm in Zhengzhou. <em>Malaysia Planning</em>. (Scopus, Article In Press)
+        </div>
+        <div class="publication">
+            <span class="authors">Wen, Q., Ismail, M., & Nasir, M. H. A.</span> (2024). Evaluating the residential environment of traditional settlements in northern Jiangxi, China: A multi-dimensional framework. <em>Journal of Construction in Developing Countries</em>, 29, 209-239. (ESCI Q4, JIF=0.8)
+        </div>
+        <div class="publication">
+            <span class="authors">Xu, W., Ismail, M., Shahruddin, S., Quan, W., & Li, Y.</span> (2025). Exploring tourists' intentions to adopt augmented reality in cultural heritage museums: Insights from a modified technology acceptance model. <em>SAGE Open</em>, 15(2). (SSCI JCR Q1, IF=2.0)
+        </div>
+        <div class="publication">
+            <span class="authors">Zhou, J. S., Mamat, M. J. B., & Wen, Q.</span> (2025). Analyzing the traditional rural cultural heritage of Lingnan region in China as the foundation for protection and development. <em>International Journal of Conservation Science</em>, 16(1), 91-100. (ESCI Q1, JIF=0.8)
+        </div>
+        <div class="publication">
+            <span class="authors">Zhang, J., Hassan, H., Aziz, Z. A., Jing, K. T., & Wen, Q.</span> (2024). Exploring the factors for the use of building information modelling (BIM) in historic buildings. <em>Journal of Construction in Developing Countries</em>. (ISI, Article In Press)
+        </div>
+        <div class="publication">
+            <span class="authors">Zhao, J., Omar, S. I., Liu, H., & Wen, Q.</span> (2025). Study on the coupled and coordinated development of tourism economy and ecological environment in Chengdu city, China. <em>Malaysia Planning</em>. (Scopus, Accepted)
+        </div>
+        <div class="publication">
+            <span class="authors">Zhang, J., Hassan, H. B., Aziz, Z. A., Jing, K. T., & Wen, Q.</span> (2025). Exploring the application of the circular economy to the adaptive reuse of architectural heritage. <em>Malaysia Planning</em>. (Scopus, Article In Press)
+        </div>
+        <div class="publication">
+            <span class="authors">Zhao, J., Omar, S. I., Liu, H., & Wen, Q.</span> (2025). Examining the effects of perceived value on behavioral intention of green tourists in Hulunbuir grassland, China. <em>Malaysia Planning</em>. (Scopus, Article In Press)
+        </div>
+    </div>
+
+    <div class="two-column">
+        <div>
+            <div class="section-title">Language Skills & Certifications</div>
+            <div class="subsection-title">Language Proficiency:</div>
+            <ul>
+                <li>Chinese (Mandarin): Native fluency</li>
+                <li>English: Advanced academic and professional proficiency (TOEFL 86/120)</li>
+                <li>Malay: Conversational proficiency</li>
+            </ul>
+            
+            <div class="subsection-title">Professional Certifications:</div>
+            <ul>
+                <li>Higher Education Teaching Qualification Certificate</li>
+                <li>Lecturer Certificate, Zhengzhou University of Light Industry</li>
+                <li>National Computer Proficiency Examination Certification</li>
+                <li>Network Engineering Professional Certification</li>
+            </ul>
+
+            <div class="section-title">Design Practice</div>
+            <div class="job-entry">
+                <div class="job-title">Principal Design Architect <span class="date">2020</span></div>
+                <div class="organization">Comprehensive Library Interior Design Project, Easton Academy of Fine Arts, Zhengzhou University of Light Industry, China</div>
+            </div>
+            <div class="job-entry">
+                <div class="job-title">Design Architect <span class="date">2016</span></div>
+                <div class="organization">Large-scale Agricultural Facility Complex, China Grain Corporation, Yongcheng, Henan, China</div>
+            </div>
+            <div class="job-entry">
+                <div class="job-title">Design Architect <span class="date">2015</span></div>
+                <div class="organization">Sustainable Student Housing Complex, Henan University of Technology, China</div>
+            </div>
+            <div class="job-entry">
+                <div class="job-title">Design Architect <span class="date">2014</span></div>
+                <div class="organization">Integrated Agricultural Development Center, China Grain Corporation, Zhangbei, Hebei, China</div>
+            </div>
+        </div>
+
+        <div>
+            <div class="section-title">Teaching Experience</div>
+            <ul>
+                <li>Architectural Design</li>
+                <li>Engineering Drawing Fundamentals</li>
+                <li>Architectural Surveying I & II</li>
+                <li>Building Structures</li>
+                <li>Design Software (PS, AI)</li>
+                <li>Computer-Aided Design (CAD)</li>
+                <li>Existing Building Renovation Design</li>
+                <li>Software Rendering Design</li>
+                <li>Architectural Space Design</li>
+                <li>BIM Software Introduction</li>
+                <li>Architectural Sketching</li>
+                <li>Architectural Investigation</li>
+                <li>History of Chinese & Foreign Architecture</li>
+            </ul>
+
+            <div class="section-title">Honors & Awards</div>
+            <div class="subsection-title">Academic Recognition:</div>
+            <ul>
+                <li>First Prize Award, Henan Provincial Social Science Federation Research Project Excellence (2018)</li>
+                <li>University Academic Excellence Scholarship (2015-2016)</li>
+                <li>International Young Designer Exchange Fellowship (2014)</li>
+            </ul>
+
+            <div class="subsection-title">Student Mentorship and Supervision Excellence:</div>
+            <ul>
+                <li>Silver Medal, Henan Provincial Challenge Cup Competition for University Students (2022)</li>
+                <li>Silver Medal, 4th International Environmental Sustainability Design Competition (2020)</li>
+                <li>Bronze Medals (2 student teams), International Environmental Design Competition (2020)</li>
+                <li>Bronze Award for Excellence in Mentoring, CADA International Conceptual Design Awards (2020)</li>
+                <li>Outstanding Supervision Recognition, ITCD International Design Innovation Competition (2020)</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 
