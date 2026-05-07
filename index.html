@@ -150,8 +150,44 @@
             background-color: #f9f9f9;
             width: 25%;
         }
+
+        .language-switcher {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: flex-end;
+            padding: 0 0 12px 0;
+            background: rgba(255, 255, 255, 0.96);
+        }
+
+        .language-toggle {
+            border: 1px solid #003366;
+            border-radius: 6px;
+            background: #003366;
+            color: #fff;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1;
+            padding: 9px 14px;
+        }
+
+        .language-toggle:hover {
+            background: #00509e;
+        }
+
+        .language-toggle:focus-visible {
+            outline: 3px solid rgba(0, 102, 204, 0.35);
+            outline-offset: 2px;
+        }
         
         @media (max-width: 768px) {
+            .language-switcher {
+                justify-content: center;
+            }
+
             .header {
                 flex-direction: column;
                 text-align: center;
@@ -172,9 +208,19 @@
                 margin-top: 5px;
             }
         }
+
+        @media print {
+            .language-switcher {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="language-switcher">
+        <button class="language-toggle" type="button" aria-pressed="false" aria-label="切换到中文">中文</button>
+    </div>
+
     <div class="header">
         <div class="header-info">
             <div class="name">Wen Quan</div>
@@ -274,40 +320,40 @@
     <div class="section">
         <div class="section-title">Research Portfolio</div>
         
-        <div class="subsection-title">Principal Investigator</div>
-        <div class="project-entry">
-            <div class="project-title">Adaptive Renovation Strategies for Existing Long-term Care Facilities under COVID-19 Safety Protocols <span class="date">2021</span></div>
-            <div class="organization">Provincial Government Research Grant, Henan Department of Education | Project No. 2021-ZDJH-433</div>
-        </div>
+        <div class="subsection-title">Henan Federation of Social Sciences Projects</div>
         <div class="project-entry">
             <div class="project-title">Comprehensive Aging-in-Place Renovation Framework for Legacy Residential Communities in Henan Province <span class="date">2022</span></div>
-            <div class="organization">Provincial Social Science Research Grant, Henan Province | Project No. SKL-2022-608</div>
+            <div class="organization">Henan Provincial Federation of Social Sciences / Henan Provincial Social Science Research Fund | Project No. SKL-2022-608</div>
         </div>
         <div class="project-entry">
             <div class="project-title">Innovative Universal Design Strategies for New Community Development in Henan Province <span class="date">2018</span></div>
-            <div class="organization">Provincial Social Science Research Grant, Henan Province | Project No. SKL-2018-490 (First Prize Award)</div>
+            <div class="organization">Henan Provincial Federation of Social Sciences / Henan Provincial Social Science Research Fund | Project No. SKL-2018-490 (First Prize)</div>
         </div>
         <div class="project-entry">
             <div class="project-title">Interior Environment Design Strategies for Hospital Outpatient Departments in the Era of Telemedicine <span class="date">2020</span></div>
-            <div class="organization">Provincial Social Science Research Grant, Henan Province | Project No. SKL-2020-1566</div>
+            <div class="organization">Henan Provincial Federation of Social Sciences / Henan Provincial Social Science Research Fund | Project No. SKL-2020-1566</div>
         </div>
         <div class="project-entry">
             <div class="project-title">Integrated Healthcare-Housing Model for Community-Based Senior Living Facilities in Zhengzhou <span class="date">2018</span></div>
-            <div class="organization">Municipal Research Grant, Zhengzhou Social Science Federation | Project No. JX20190146</div>
+            <div class="organization">Zhengzhou Federation of Social Sciences Research Project | Project No. JX20190146</div>
         </div>
 
-        <div class="subsection-title">Co-Investigator</div>
+        <div class="subsection-title">Henan Provincial Department of Education Projects</div>
+        <div class="project-entry">
+            <div class="project-title">Adaptive Renovation Strategies for Existing Long-term Care Facilities under COVID-19 Safety Protocols <span class="date">2021</span></div>
+            <div class="organization">Henan Provincial Department of Education Research Fund | Project No. 2021-ZDJH-433</div>
+        </div>
         <div class="project-entry">
             <div class="project-title">Sustainable Construction Waste Management and Resource Recovery Research <span class="date">2020</span></div>
-            <div class="organization">Provincial Education Research Grant, Henan Province | Project No. 2020-ZDJH-477</div>
+            <div class="organization">Henan Provincial Department of Education Research Fund | Project No. 2020-ZDJH-477</div>
         </div>
         <div class="project-entry">
             <div class="project-title">Cultural Influence of Northern Buddhism on Tang Dynasty Furniture Design <span class="date">2021</span></div>
-            <div class="organization">Provincial Education Research Grant, Henan Province | Project No. 2021-ZDJH-431</div>
+            <div class="organization">Henan Provincial Department of Education Research Fund | Project No. 2021-ZDJH-431</div>
         </div>
         <div class="project-entry">
             <div class="project-title">Spatial Planning and Design Framework for Community Early Childhood Centers in Zhengzhou <span class="date">2021</span></div>
-            <div class="organization">Provincial Education Research Grant, Henan Province | Project No. 2021-ZDJH-429</div>
+            <div class="organization">Henan Provincial Department of Education Research Fund | Project No. 2021-ZDJH-429</div>
         </div>
     </div>
 
@@ -428,5 +474,242 @@
             </ul>
         </div>
     </div>
+    <script>
+        const translations = {
+            "Wen Quan": "温泉",
+            "Architect & Academic Researcher": "建筑师与学术研究者",
+            "+86 156-4900-6328 (China) • +60 12-938-6817 (Malaysia)": "+86 156-4900-6328（中国） • +60 12-938-6817（马来西亚）",
+            "Zhengzhou, Henan Province, People's Republic of China": "中华人民共和国河南省郑州市",
+            "ORCID:": "ORCID：",
+            "Professional Summary": "职业概况",
+            "Accomplished architect and academic researcher specializing in aging-in-place design innovation, healthcare-integrated facility systems, traditional settlement preservation, and AI-driven architectural design solutions. Ph.D. candidate in Architecture with demonstrated expertise in cross-disciplinary research combining artificial intelligence technologies with evidence-based design solutions for elderly care environments and cultural heritage preservation. Proven track record in securing competitive government research grants and implementing research findings into real-world architectural practice through innovative AI-assisted design methodologies.": "建筑师与学术研究者，长期专注于原居安老设计创新、医养结合设施系统、传统聚落保护以及人工智能驱动的建筑设计解决方案。现为建筑学博士候选人，具备跨学科研究能力，致力于将人工智能技术与循证设计方法结合，服务于养老环境与文化遗产保护。曾主持或参与多项政府科研项目，并通过 AI 辅助设计方法推动研究成果在真实建筑实践中的应用。",
+            "Personal Information": "个人信息",
+            "Date of Birth:": "出生日期：",
+            "August 16, 1989": "1989年8月16日",
+            "Nationality:": "国籍：",
+            "China": "中国",
+            "Gender:": "性别：",
+            "Male": "男",
+            "Professional Membership:": "专业会员：",
+            "China Architecture Society": "中国建筑学会",
+            "Research Focus:": "研究方向：",
+            "AI & Aging-in-Place Design": "人工智能与原居安老设计",
+            "Current Status:": "当前身份：",
+            "Ph.D. Candidate & Lecturer": "博士候选人、讲师",
+            "Education": "教育背景",
+            "Ph.D. in Architecture (In Progress)": "建筑学博士（在读）",
+            "2021–Present": "2021年至今",
+            "School of Housing, Building and Planning, Universiti Sains Malaysia, Malaysia": "马来西亚理科大学住房、建筑与规划学院，马来西亚",
+            "Master of Engineering, Architecture": "建筑学工程硕士",
+            "2014–2017": "2014年至2017年",
+            "Henan University of Technology, China | Specialization: Architectural Design and Theory": "河南工业大学，中国 | 研究方向：建筑设计及其理论",
+            "Bachelor of Engineering, Architecture": "建筑学工学学士",
+            "2009–2014": "2009年至2014年",
+            "Anyang Normal University, China | Dual Degree Program: Bachelor of Education": "安阳师范学院，中国 | 双学位：教育学学士",
+            "Professional Experience": "专业经历",
+            "Current Positions": "现任职务",
+            "Secretary, Postgraduate Research Workshop Committee": "研究生研究工作坊委员会秘书",
+            "2025–Present": "2025年至今",
+            "School of Housing, Building and Planning, Universiti Sains Malaysia": "马来西亚理科大学住房、建筑与规划学院",
+            "Academic Committee Member & Senior Project Review Expert": "学术委员会委员兼高级项目评审专家",
+            "2020–Present": "2020年至今",
+            "Zhongren Art Museum, Sichuan Province, China": "众仁美术馆，中国四川省",
+            "Previous Academic Positions": "曾任学术职务",
+            "Lecturer": "讲师",
+            "2021": "2021年",
+            "Henan Industry and Trade Vocational College | Leave of Absence for Doctoral Studies": "河南工业贸易职业学院 | 攻读博士期间离岗学习",
+            "Part-time Lecturer": "兼职讲师",
+            "2019–2021": "2019年至2021年",
+            "Henan University of Animal Husbandry and Economy": "河南牧业经济学院",
+            "2017–2021": "2017年至2021年",
+            "Easton International Art College, Zhengzhou University of Light Industry": "郑州轻工业大学易斯顿美术学院",
+            "Early Career Experience": "早期职业经历",
+            "Research Associate": "研究助理",
+            "2017": "2017年",
+            "Green Building Research Institute, Henan Academy of Building Research": "河南省建筑科学研究院绿色建筑研究所",
+            "Research Portfolio": "科研项目",
+            "Henan Federation of Social Sciences Projects": "河南省社会科学界联合会项目",
+            "Comprehensive Aging-in-Place Renovation Framework for Legacy Residential Communities in Henan Province": "河南省既有住区适老化综合改造框架研究",
+            "2022": "2022年",
+            "Henan Provincial Federation of Social Sciences / Henan Provincial Social Science Research Fund | Project No. SKL-2022-608": "河南省社会科学界联合会 / 河南省社科研究基金 | 项目编号：SKL-2022-608",
+            "Innovative Universal Design Strategies for New Community Development in Henan Province": "河南省新型社区建设中的通用设计创新策略研究",
+            "2018": "2018年",
+            "Henan Provincial Federation of Social Sciences / Henan Provincial Social Science Research Fund | Project No. SKL-2018-490 (First Prize)": "河南省社会科学界联合会 / 河南省社科研究基金 | 项目编号：SKL-2018-490（一等奖）",
+            "Interior Environment Design Strategies for Hospital Outpatient Departments in the Era of Telemedicine": "远程医疗时代医院门诊部室内环境设计策略研究",
+            "2020": "2020年",
+            "Henan Provincial Federation of Social Sciences / Henan Provincial Social Science Research Fund | Project No. SKL-2020-1566": "河南省社会科学界联合会 / 河南省社科研究基金 | 项目编号：SKL-2020-1566",
+            "Integrated Healthcare-Housing Model for Community-Based Senior Living Facilities in Zhengzhou": "郑州市社区型老年居住设施医养结合模式研究",
+            "Zhengzhou Federation of Social Sciences Research Project | Project No. JX20190146": "郑州市社会科学界联合会研究项目 | 项目编号：JX20190146",
+            "Henan Provincial Department of Education Projects": "河南省教育厅项目",
+            "Adaptive Renovation Strategies for Existing Long-term Care Facilities under COVID-19 Safety Protocols": "新冠疫情防控要求下既有养老机构适应性改造策略研究",
+            "Henan Provincial Department of Education Research Fund | Project No. 2021-ZDJH-433": "河南省教育厅研究项目 | 项目编号：2021-ZDJH-433",
+            "Sustainable Construction Waste Management and Resource Recovery Research": "建筑垃圾可持续管理与资源化利用研究",
+            "Henan Provincial Department of Education Research Fund | Project No. 2020-ZDJH-477": "河南省教育厅研究项目 | 项目编号：2020-ZDJH-477",
+            "Cultural Influence of Northern Buddhism on Tang Dynasty Furniture Design": "北传佛教文化对唐代家具设计的影响研究",
+            "Henan Provincial Department of Education Research Fund | Project No. 2021-ZDJH-431": "河南省教育厅研究项目 | 项目编号：2021-ZDJH-431",
+            "Spatial Planning and Design Framework for Community Early Childhood Centers in Zhengzhou": "郑州市社区婴幼儿照护中心空间规划与设计框架研究",
+            "Henan Provincial Department of Education Research Fund | Project No. 2021-ZDJH-429": "河南省教育厅研究项目 | 项目编号：2021-ZDJH-429",
+            "Publications": "论文发表",
+            "First Author": "第一作者",
+            "(2026). Transforming vacant rural school buildings into age-friendly facilities under China's aging and low-fertility context: A natural language processing–based evaluation framework.": "（2026）。中国老龄化与低生育背景下闲置农村校舍向适老化设施的转型：基于自然语言处理的评价框架。",
+            "(2025). A community public health emergency resilience assessment framework based on contrastive learning and hyperbolic embedding.": "（2025）。基于对比学习与双曲嵌入的社区公共卫生突发事件韧性评估框架。",
+            "(2024). Evaluating the residential environment of traditional settlements in northern Jiangxi, China: A multi-dimensional framework.": "（2024）。中国赣北传统聚落居住环境评价：多维度框架。",
+            "(2025). Assessment and prediction model for community resilience in China based on GANs and random forest regression.": "（2025）。基于生成对抗网络与随机森林回归的中国社区韧性评估与预测模型。",
+            "(2025). Developing a comprehensive framework for assessing community resilience to public health emergencies in Henan Province: Insights from SciBERT analysis.": "（2025）。河南省社区应对公共卫生突发事件韧性的综合评估框架构建：来自 SciBERT 分析的启示。",
+            "Co-Author": "合作者",
+            "(2026). Emotion Analysis of Literary Works Based on Attention Mechanisms and Dual-Channel Gated Feature Fusion.": "（2026）。基于注意力机制与双通道门控特征融合的文学作品情感分析。",
+            "(2025). Influencing factors of residents' subjective well-being in rural tourism destinations: A case study of Licha village in Guangdong, China.": "（2025）。乡村旅游目的地居民主观幸福感的影响因素：以中国广东礼查村为例。",
+            "(2025). Exploring tourists' intentions to adopt augmented reality in cultural heritage museums: Insights from a modified technology acceptance model.": "（2025）。文化遗产博物馆游客采用增强现实技术意愿研究：基于修正技术接受模型的启示。",
+            "(2025). Analyzing the traditional rural cultural heritage of Lingnan region in China as the foundation for protection and development.": "（2025）。中国岭南地区传统乡村文化遗产分析及其保护与发展基础研究。",
+            "(2025). Exploring the factors for the use of building information modelling (BIM) in historic buildings.": "（2025）。历史建筑中建筑信息模型（BIM）应用因素研究。",
+            "(2025). Examining the effects of perceived value on behavioral intention of green tourists in Hulunbuir grassland, China.": "（2025）。感知价值对中国呼伦贝尔草原绿色游客行为意向的影响研究。",
+            "(2025). Study on the coupled and coordinated development of tourism economy and ecological environment in Chengdu city, China.": "（2025）。中国成都市旅游经济与生态环境耦合协调发展研究。",
+            ". DOI:": "。DOI：",
+            ", 29, 209-239. DOI:": "，29，209-239。DOI：",
+            ", 23(38). DOI:": "，23(38)。DOI：",
+            ", 1-1. DOI:": "，1-1。DOI：",
+            ", 025340068. DOI:": "，025340068。DOI：",
+            ", 15(2). DOI:": "，15(2)。DOI：",
+            ", 16(1), 91-100. DOI:": "，16(1)，91-100。DOI：",
+            ", 30(S2). DOI:": "，30(S2)。DOI：",
+            ", 23(36). DOI:": "，23(36)。DOI：",
+            "(SCIE Q1, JIF=4.1)": "（SCIE Q1，JIF=4.1）",
+            "(SSCI Q1, JIF=5.2)": "（SSCI Q1，JIF=5.2）",
+            "(ESCI Q4, JIF=0.8)": "（ESCI Q4，JIF=0.8）",
+            "(Scopus)": "（Scopus）",
+            "(SCIE)": "（SCIE）",
+            "(SSCI Q1, JIF=2.0)": "（SSCI Q1，JIF=2.0）",
+            "(ESCI Q1, JIF=0.8)": "（ESCI Q1，JIF=0.8）",
+            "(ESCI)": "（ESCI）",
+            "Language Skills & Certifications": "语言能力与证书",
+            "Language Proficiency:": "语言能力：",
+            "Chinese (Mandarin): Native fluency": "中文（普通话）：母语水平",
+            "English: Advanced academic and professional proficiency (TOEFL 86/120)": "英语：高级学术与专业沟通能力（TOEFL 86/120）",
+            "Malay: Conversational proficiency": "马来语：日常会话能力",
+            "Professional Certifications:": "专业证书：",
+            "Higher Education Teaching Qualification Certificate": "高等教育教师资格证书",
+            "Lecturer Certificate, Zhengzhou University of Light Industry": "郑州轻工业大学讲师资格证书",
+            "National Computer Proficiency Examination Certification": "全国计算机等级考试证书",
+            "Network Engineering Professional Certification": "网络工程专业认证",
+            "Design Practice": "设计实践",
+            "Principal Design Architect": "主创建筑设计师",
+            "Comprehensive Library Interior Design Project, Easton Academy of Fine Arts, Zhengzhou University of Light Industry, China": "郑州轻工业大学易斯顿美术学院综合图书馆室内设计项目，中国",
+            "Design Architect": "建筑设计师",
+            "2016": "2016年",
+            "Large-scale Agricultural Facility Complex, China Grain Corporation, Yongcheng, Henan, China": "中粮集团大型农业设施综合体，河南永城，中国",
+            "2015": "2015年",
+            "Sustainable Student Housing Complex, Henan University of Technology, China": "河南工业大学可持续学生公寓综合体，中国",
+            "2014": "2014年",
+            "Integrated Agricultural Development Center, China Grain Corporation, Zhangbei, Hebei, China": "中粮集团综合农业发展中心，河北张北，中国",
+            "Teaching Experience": "教学经历",
+            "Architectural Design": "建筑设计",
+            "Engineering Drawing Fundamentals": "工程制图基础",
+            "Architectural Surveying I & II": "建筑测绘 I 与 II",
+            "Building Structures": "建筑结构",
+            "Design Software (PS, AI)": "设计软件（PS、AI）",
+            "Computer-Aided Design (CAD)": "计算机辅助设计（CAD）",
+            "Existing Building Renovation Design": "既有建筑改造设计",
+            "Software Rendering Design": "软件渲染设计",
+            "Architectural Space Design": "建筑空间设计",
+            "BIM Software Introduction": "BIM 软件导论",
+            "Architectural Sketching": "建筑速写",
+            "Architectural Investigation": "建筑调研",
+            "History of Chinese & Foreign Architecture": "中外建筑史",
+            "Honors & Awards": "荣誉与奖励",
+            "Academic Recognition:": "学术荣誉：",
+            "First Prize Award, Henan Provincial Social Science Federation Research Project Excellence (2018)": "河南省社会科学界联合会优秀研究项目一等奖（2018）",
+            "University Academic Excellence Scholarship (2015-2016)": "校级学业优秀奖学金（2015-2016）",
+            "International Young Designer Exchange Fellowship (2014)": "国际青年设计师交流奖学金（2014）",
+            "Student Mentorship and Supervision Excellence:": "学生指导与竞赛指导：",
+            "Silver Medal, Henan Provincial Challenge Cup Competition for University Students (2022)": "河南省大学生挑战杯竞赛银奖（2022）",
+            "Silver Medal, 4th International Environmental Sustainability Design Competition (2020)": "第四届国际环境可持续设计竞赛银奖（2020）",
+            "Bronze Medals (2 student teams), International Environmental Design Competition (2020)": "国际环境设计竞赛铜奖（2组学生团队，2020）",
+            "Bronze Award for Excellence in Mentoring, CADA International Conceptual Design Awards (2020)": "CADA 国际概念设计奖优秀指导铜奖（2020）",
+            "Outstanding Supervision Recognition, ITCD International Design Innovation Competition (2020)": "ITCD 国际设计创新竞赛优秀指导奖（2020）"
+        };
+
+        const originalText = new WeakMap();
+        const toggleButton = document.querySelector(".language-toggle");
+        const storageKey = "resume-language";
+        let activeLanguage = "en";
+
+        function getSavedLanguage() {
+            try {
+                return localStorage.getItem(storageKey);
+            } catch {
+                return null;
+            }
+        }
+
+        function saveLanguage(language) {
+            try {
+                localStorage.setItem(storageKey, language);
+            } catch {
+                // Local storage can be unavailable in restricted browser contexts.
+            }
+        }
+
+        function collectTextNodes() {
+            const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+                acceptNode(node) {
+                    const parent = node.parentElement;
+                    if (!parent || parent.closest(".language-switcher, script, style")) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+
+                    return node.nodeValue.trim()
+                        ? NodeFilter.FILTER_ACCEPT
+                        : NodeFilter.FILTER_SKIP;
+                }
+            });
+            const nodes = [];
+
+            while (walker.nextNode()) {
+                nodes.push(walker.currentNode);
+            }
+
+            return nodes;
+        }
+
+        function setLanguage(language) {
+            activeLanguage = language === "zh" ? "zh" : "en";
+            const isChinese = activeLanguage === "zh";
+
+            collectTextNodes().forEach((node) => {
+                if (!originalText.has(node)) {
+                    originalText.set(node, node.nodeValue);
+                }
+
+                const englishText = originalText.get(node);
+                const trimmedEnglish = englishText.trim();
+                const nextText = isChinese && translations[trimmedEnglish]
+                    ? translations[trimmedEnglish]
+                    : trimmedEnglish;
+
+                node.nodeValue = englishText.replace(trimmedEnglish, nextText);
+            });
+
+            document.documentElement.lang = isChinese ? "zh-CN" : "en";
+            document.title = isChinese
+                ? "温泉 - 建筑师与学术研究者"
+                : "Wen Quan - Architect & Academic Researcher";
+
+            const photo = document.querySelector(".photo");
+            if (photo) {
+                photo.alt = isChinese ? "温泉" : "Wen Quan";
+            }
+
+            toggleButton.textContent = isChinese ? "English" : "中文";
+            toggleButton.setAttribute("aria-label", isChinese ? "Switch to English" : "切换到中文");
+            toggleButton.setAttribute("aria-pressed", String(isChinese));
+            saveLanguage(activeLanguage);
+        }
+
+        toggleButton.addEventListener("click", () => {
+            setLanguage(activeLanguage === "zh" ? "en" : "zh");
+        });
+
+        setLanguage(getSavedLanguage() || "en");
+    </script>
 </body>
 </html> 
