@@ -1,268 +1,125 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Wen Quan - teacher site for architectural and interior design education, studio teaching, and built-environment practice.">
-  <title>Wen Quan | Teacher Site</title>
-  <style>
-    :root {
-      --ink: #202a2e;
-      --muted: #667477;
-      --paper: #fbfaf6;
-      --surface: #ffffff;
-      --line: #d9dfdc;
-      --navy: #173c4d;
-      --sage: #607c70;
-      --gold: #b3833d;
-      --soft-blue: #eaf1f2;
-      --soft-gold: #f5eee2;
-      --radius: 8px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      min-width: 320px;
-      color: var(--ink);
-      background: var(--paper);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.55;
-      letter-spacing: 0;
-    }
-    a { color: var(--navy); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-    a:hover { color: #0d6878; }
-    img { max-width: 100%; display: block; }
-    .skip-link { position: absolute; left: -9999px; top: 8px; }
-    .skip-link:focus { left: 12px; z-index: 20; background: var(--surface); padding: 8px 12px; }
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(251, 250, 246, .96);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(10px);
-    }
-    .nav {
-      width: min(1180px, 100%);
-      margin: 0 auto;
-      padding: 14px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-    }
-    .brand { color: var(--navy); font-weight: 800; letter-spacing: .02em; text-decoration: none; }
-    .brand span { color: var(--gold); font-weight: 600; }
-    .nav-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 16px; font-size: 13px; }
-    .nav-links a { text-decoration: none; color: var(--muted); }
-    .nav-links a:hover { color: var(--navy); }
-    .page { width: min(1180px, 100%); margin: 0 auto; padding: 0 22px 52px; }
-    .hero {
-      padding: 66px 0 44px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 250px;
-      gap: 48px;
-      align-items: center;
-      border-bottom: 1px solid var(--line);
-    }
-    .eyebrow { margin: 0 0 12px; color: var(--gold); font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-    h1 { margin: 0; color: var(--navy); font-family: Georgia, "Times New Roman", serif; font-size: clamp(42px, 7vw, 74px); line-height: .98; font-weight: 500; }
-    .hero-title { margin: 18px 0 0; max-width: 670px; color: var(--sage); font-size: clamp(20px, 3vw, 30px); line-height: 1.2; }
-    .hero-copy { max-width: 680px; margin: 20px 0 0; color: var(--muted); font-size: 16px; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
-    .button { display: inline-flex; align-items: center; min-height: 42px; padding: 9px 14px; border: 1px solid var(--navy); border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 750; }
-    .button.primary { color: #fff; background: var(--navy); }
-    .button.secondary { color: var(--navy); background: transparent; }
-    .button:hover { text-decoration: none; transform: translateY(-1px); }
-    .portrait { width: 220px; aspect-ratio: 4 / 5; object-fit: cover; justify-self: end; border: 8px solid var(--surface); outline: 1px solid var(--line); }
-    .contact-line { margin: 18px 0 0; color: var(--muted); font-size: 13px; }
-    .section { padding: 42px 0; border-bottom: 1px solid var(--line); }
-    .section-heading { display: grid; grid-template-columns: minmax(180px, .35fr) minmax(0, 1fr); gap: 30px; align-items: start; margin-bottom: 24px; }
-    h2 { margin: 0; color: var(--navy); font-family: Georgia, "Times New Roman", serif; font-size: 30px; font-weight: 500; line-height: 1.1; }
-    .section-lead { margin: 0; color: var(--muted); max-width: 690px; }
-    .split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
-    .panel { padding: 22px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
-    .panel.soft-blue { background: var(--soft-blue); }
-    .panel.soft-gold { background: var(--soft-gold); }
-    h3 { margin: 0 0 11px; color: var(--navy); font-size: 17px; line-height: 1.25; }
-    .panel p { margin: 0; color: var(--muted); font-size: 14px; }
-    .course-list, .plain-list { margin: 0; padding-left: 19px; color: var(--muted); font-size: 14px; }
-    .course-list li, .plain-list li { margin: 0 0 6px; }
-    .course-list li:last-child, .plain-list li:last-child { margin-bottom: 0; }
-    .timeline { display: grid; gap: 0; }
-    .timeline-item { display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: 24px; padding: 18px 0; border-top: 1px solid var(--line); }
-    .timeline-item:first-child { border-top: 0; padding-top: 0; }
-    .timeline-date { color: var(--gold); font-size: 13px; font-weight: 800; }
-    .timeline-title { margin: 0 0 4px; color: var(--navy); font-weight: 800; }
-    .timeline-org { margin: 0 0 5px; color: var(--sage); font-size: 13px; }
-    .timeline-note { margin: 0; color: var(--muted); font-size: 14px; }
-    .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-    .project { padding: 18px; border-left: 3px solid var(--gold); background: var(--surface); border-top: 1px solid var(--line); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .project h3 { font-size: 15px; margin-bottom: 8px; }
-    .project p { margin: 0; color: var(--muted); font-size: 13px; }
-    .material-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-    .material { padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
-    .material strong { display: block; margin-bottom: 4px; color: var(--navy); font-size: 14px; }
-    .material span { color: var(--muted); font-size: 13px; }
-    .site-footer { width: min(1180px, 100%); margin: 0 auto; padding: 22px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 12px; }
-    @media (max-width: 820px) {
-      .nav { align-items: flex-start; flex-direction: column; gap: 10px; }
-      .nav-links { justify-content: flex-start; gap: 12px; }
-      .hero { grid-template-columns: 1fr; gap: 26px; padding-top: 44px; }
-      .portrait { justify-self: start; width: 160px; }
-      .section-heading { grid-template-columns: 1fr; gap: 10px; }
-      .split, .project-grid, .material-row { grid-template-columns: 1fr; }
-      .timeline-item { grid-template-columns: 1fr; gap: 5px; }
-    }
-    @media print {
-      .site-header { position: static; }
-      .hero-actions { display: none; }
-      .page { padding: 0; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quan Wen, PhD — Computational assessment of age-friendly built environments</title>
+<style>
+  :root { --ink:#1b1f24; --muted:#5c6672; --line:#e3e7ec; --accent:#2054a8; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#fbfcfd; color:var(--ink);
+         font:16px/1.65 -apple-system,"Segoe UI",Roboto,"Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif; }
+  .wrap { max-width: 820px; margin:0 auto; padding:48px 22px 72px; }
+  header { display:flex; gap:26px; align-items:flex-start; border-bottom:1px solid var(--line); padding-bottom:26px; }
+  header img { width:132px; height:auto; border-radius:6px; box-shadow:0 2px 10px rgba(16,36,72,.16); flex:0 0 auto; }
+  h1 { font-size:1.85rem; margin:0 0 4px; letter-spacing:-.01em; }
+  .role { color:var(--muted); margin:0 0 10px; font-size:1.02rem; }
+  .links a { color:var(--accent); text-decoration:none; margin-right:14px; font-size:.94rem; }
+  .links a:hover { text-decoration:underline; }
+  h2 { font-size:1.12rem; margin:38px 0 10px; padding-bottom:6px; border-bottom:1px solid var(--line); }
+  p { margin:0 0 12px; }
+  ul { margin:0 0 12px; padding-left:20px; }
+  li { margin-bottom:6px; }
+  dl.skills dt { font-weight:600; float:left; margin-right:6px; }
+  dl.skills dd { margin:0 0 8px; color:#2b333c; }
+  ol.pubs { padding-left:22px; margin:0; }
+  ol.pubs li { margin-bottom:11px; font-size:.95rem; }
+  .tag { display:inline-block; font-size:.76rem; color:#0f4c9a; background:#e8f0fb;
+         border:1px solid #cfdff5; border-radius:4px; padding:0 6px; margin-left:6px; vertical-align:1px; }
+  .meta { color:var(--muted); font-size:.86rem; }
+  a.doi { color:var(--accent); text-decoration:none; }
+  footer { margin-top:44px; border-top:1px solid var(--line); padding-top:16px; color:var(--muted); font-size:.86rem; }
+  @media (max-width:640px){ header{flex-direction:column;gap:16px;} header img{width:112px;} }
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <nav class="nav" aria-label="Primary navigation">
-      <a class="brand" href="./">Wen Quan <span>/ Teacher Site</span></a>
-      <div class="nav-links">
-        <a href="#teaching">Teaching</a>
-        <a href="#experience">Experience</a>
-        <a href="#practice">Practice</a>
-        <a href="#materials">Materials</a>
-        <a href="https://wenquan0816.github.io/postdoc/">Research / Postdoc</a>
-      </div>
-    </nav>
-  </header>
+<div class="wrap">
 
-  <main id="main" class="page">
-    <section class="hero" aria-labelledby="intro-title">
-      <div>
-        <p class="eyebrow">Teacher site | Architectural and interior design education</p>
-        <h1 id="intro-title">Wen Quan</h1>
-        <p class="hero-title">Lecturer, studio educator, and built-environment practitioner.</p>
-        <p class="hero-copy">I teach architectural and interior design through studio-based learning, technical communication, evidence-led observation, and practical digital workflows. My teaching connects design decisions with human needs, existing buildings, community contexts, and age-friendly environments.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#teaching">View teaching profile</a>
-          <a class="button secondary" href="resume.pdf">Download full CV</a>
-          <a class="button secondary" href="https://wenquan0816.github.io/postdoc/">Research / postdoc site</a>
-        </div>
-        <p class="contact-line"><a href="mailto:wenquan@student.usm.my">wenquan@student.usm.my</a> | +60 12-938-6817 | Universiti Sains Malaysia, Pulau Pinang</p>
-      </div>
-      <img class="portrait" src="photo.png" alt="Portrait of Wen Quan">
-    </section>
+<header>
+  <img src="photo.png" alt="Portrait of Quan Wen">
+  <div>
+    <h1>Quan Wen, PhD</h1>
+    <p class="role">Computational assessment of age-friendly built environments</p>
+    <p class="links">
+      <a href="mailto:wenquan@student.usm.my">wenquan@student.usm.my</a>
+      <a href="https://scholar.google.com/citations?user=BMsvy5kAAAAJ">Google Scholar</a>
+      <a href="https://github.com/WENQUAN0816">GitHub</a>
+      <a href="https://wenquan0816.github.io/age-friendly-community-map/">Live demo</a>
+    </p>
+  </div>
+</header>
 
-    <section id="teaching" class="section" aria-labelledby="teaching-title">
-      <div class="section-heading">
-        <h2 id="teaching-title">Teaching profile</h2>
-        <p class="section-lead">My teaching is organised around the full design cycle: observing people and places, defining a problem, developing alternatives, testing decisions, and communicating a resolved proposal.</p>
-      </div>
-      <div class="split">
-        <article class="panel soft-blue">
-          <h3>Studio and design education</h3>
-          <p>I support students from early concept development to final presentation, with emphasis on spatial reasoning, user needs, design critique, and clear visual and written communication.</p>
-        </article>
-        <article class="panel soft-gold">
-          <h3>Technical and digital learning</h3>
-          <p>I teach students to connect drawing, surveying, CAD/BIM, rendering, materials, and digital tools with practical design decisions rather than treating software as an isolated skill.</p>
-        </article>
-      </div>
-      <div class="split" style="margin-top: 16px;">
-        <article class="panel">
-          <h3>Courses and teaching areas</h3>
-          <ul class="course-list">
-            <li>Architectural and interior design studio</li>
-            <li>Existing-building renovation and adaptive reuse</li>
-            <li>Architectural investigation and surveying</li>
-            <li>Engineering drawing and building structures</li>
-            <li>Materials, rendering, CAD, and BIM fundamentals</li>
-            <li>Architectural space design and design history</li>
-          </ul>
-        </article>
-        <article class="panel">
-          <h3>Student support</h3>
-          <ul class="plain-list">
-            <li>Individual feedback and structured studio reviews</li>
-            <li>Portfolio and final-project preparation</li>
-            <li>Interdisciplinary design problem framing</li>
-            <li>Competition and exhibition project mentoring</li>
-            <li>Research-informed design documentation</li>
-          </ul>
-        </article>
-      </div>
-    </section>
+<h2>About</h2>
+<p>I work on machine learning and natural-language methods for measuring the built environment. My published work uses NLP and SciBERT topic modelling, LLM-assisted indicator construction, meta-learning and attentive neural processes, LSTM model predictive control, generative models, 3D point-cloud segmentation with transfer learning, and multi-criteria decision analysis (fuzzy Delphi, AHP, DEMATEL).</p>
+<p>PhD in Interior Design, Universiti Sains Malaysia, awarded 2026 — the programme sits in an architecture school, but the research itself is computational. Twenty-three journal articles, fourteen as first author, eleven of them SCIE/SSCI with a cumulative impact factor of 57.4 (2025 JCR) and ten in Q1. Principal Investigator of five funded projects.</p>
 
-    <section id="experience" class="section" aria-labelledby="experience-title">
-      <div class="section-heading">
-        <h2 id="experience-title">Teaching experience</h2>
-        <p class="section-lead">A teaching-focused record across higher education, design studios, and built-environment practice.</p>
-      </div>
-      <div class="timeline">
-        <article class="timeline-item">
-          <div class="timeline-date">2021-2023</div>
-          <div><p class="timeline-title">Lecturer</p><p class="timeline-org">Henan Industry and Trade Vocational College</p><p class="timeline-note">Delivered design, drawing, materials, surveying, and digital-design teaching while supervising student work.</p></div>
-        </article>
-        <article class="timeline-item">
-          <div class="timeline-date">2019-2021</div>
-          <div><p class="timeline-title">Part-time Lecturer</p><p class="timeline-org">Henan University of Animal Husbandry and Economy</p><p class="timeline-note">Supported design teaching and applied technical instruction in a practice-oriented higher-education setting.</p></div>
-        </article>
-        <article class="timeline-item">
-          <div class="timeline-date">2017-2021</div>
-          <div><p class="timeline-title">Lecturer</p><p class="timeline-org">Easton International Art College, Zhengzhou University of Light Industry</p><p class="timeline-note">Taught architectural and interior design subjects and mentored student design projects.</p></div>
-        </article>
-        <article class="timeline-item">
-          <div class="timeline-date">2017</div>
-          <div><p class="timeline-title">Research Associate</p><p class="timeline-org">Green Building Research Institute, Henan Academy of Building Research</p><p class="timeline-note">Contributed to applied building and environmental research before moving into full-time higher-education teaching.</p></div>
-        </article>
-      </div>
-    </section>
+<h2>Research interests</h2>
+<ul>
+  <li><strong>NLP of built-environment evidence.</strong> SciBERT topic modelling, LLM-assisted indicator construction, retrieval over policy, survey and assessment text.</li>
+  <li><strong>Machine learning for spatial assessment.</strong> Deep learning on 3D point clouds, transfer and meta-learning under small samples, interpretability with SHAP.</li>
+  <li><strong>Decision-analytic weighting.</strong> Fuzzy Delphi, AHP and DEMATEL for indicator systems under expert uncertainty, with consistency control.</li>
+  <li><strong>Software realisation.</strong> Rule engines, versioned scoring specifications, regression tests, offline-first mobile data capture, and public web demos.</li>
+</ul>
 
-    <section id="practice" class="section" aria-labelledby="practice-title">
-      <div class="section-heading">
-        <h2 id="practice-title">Practice and mentoring</h2>
-        <p class="section-lead">I use real projects and community questions to help students see how design knowledge travels beyond the studio.</p>
-      </div>
-      <div class="project-grid">
-        <article class="project"><h3>Age-friendly housing and community renovation</h3><p>Applied design research on ageing-in-place, accessibility, safety, and the adaptation of existing residential environments.</p></article>
-        <article class="project"><h3>Healthcare and long-term-care environments</h3><p>Project work on outpatient interiors, care facilities, and the relationship between spatial conditions and wellbeing.</p></article>
-        <article class="project"><h3>Community and public-space design</h3><p>Studio and research projects connecting environmental observation, user experience, and inclusive community development.</p></article>
-      </div>
-      <div class="split" style="margin-top: 20px;">
-        <article class="panel">
-          <h3>Academic service</h3>
-          <ul class="plain-list">
-            <li>Secretary, HBP Postgraduate Student Association, Universiti Sains Malaysia</li>
-            <li>Journal reviewer, SAGE Open</li>
-            <li>Academic committee member and senior project review expert, Zhongren Art Museum</li>
-          </ul>
-        </article>
-        <article class="panel">
-          <h3>Student-facing outcomes</h3>
-          <p>My mentoring work has supported design competitions, exhibition projects, portfolio development, and clearer connections between conceptual thinking and buildable proposals.</p>
-        </article>
-      </div>
-    </section>
+<h2>Computational skills</h2>
+<dl class="skills">
+  <dt>Programming</dt><dd>Python (primary), LaTeX</dd>
+  <dt>Machine learning</dt><dd>PyTorch, scikit-learn, Hugging Face Transformers (SciBERT and related encoders), SHAP</dd>
+  <dt>Spatial data</dt><dd>3D point-cloud processing, semantic segmentation, geometric feature engineering</dd>
+  <dt>Statistical models</dt><dd>random forests, GANs, LSTM, meta-learning, multi-criteria decision models</dd>
+  <dt>Engineering practice</dt><dd>rule-engine design, test oracles and regression testing, offline-first data capture, Git, GitHub Pages</dd>
+</dl>
 
-    <section id="materials" class="section" aria-labelledby="materials-title">
-      <div class="section-heading">
-        <h2 id="materials-title">Materials and contact</h2>
-        <p class="section-lead">This site is for lecturer, teaching-focused, and design-education applications. For a research-first profile, use the separate postdoctoral site.</p>
-      </div>
-      <div class="material-row">
-        <a class="material" href="resume.pdf"><strong>Full academic CV</strong><span>Teaching, practice, projects, publications, and service</span></a>
-        <a class="material" href="https://orcid.org/0009-0005-3975-8104"><strong>ORCID</strong><span>Persistent research identifier</span></a>
-        <a class="material" href="https://wenquan0816.github.io/postdoc/"><strong>Research / postdoc site</strong><span>Healthy ageing, public health, and computational research</span></a>
-      </div>
-      <p class="contact-line">Contact: <a href="mailto:wenquan@student.usm.my">wenquan@student.usm.my</a> | <a href="mailto:wenquan@hngm.edu.cn">wenquan@hngm.edu.cn</a></p>
-    </section>
-  </main>
+<h2>Publications — first author</h2>
+<p class="meta">Quartiles follow the 2025 Journal Citation Reports. Full author lists are given so that first authorship can be verified.</p>
+<ol class="pubs">
+  <li>Wen, Q.; Ismail, M.; Abdul Nasir, M. H.; Wu, Y. (2026). Spatiotemporal deep learning for multimodal thermal comfort assessment and prediction in community elderly day-care centers. <em>Energy and Buildings</em>, 372, 118266. <span class="tag">SCIE Q1 · IF 8.0</span> <a class="doi" href="https://doi.org/10.1016/j.enbuild.2026.118266">doi</a></li>
+  <li>Wen, Q.; Ismail, M.; Abdul Nasir, M. H. (2026). A multi-dimensional resilience assessment framework for indoor aging-friendly environments: LLM-assisted indicator construction using Google Gemini Pro. <em>Humanities and Social Sciences Communications</em>. <span class="tag">SSCI Q1 · IF 3.6</span> <a class="doi" href="https://doi.org/10.1057/s41599-026-09176-7">doi</a></li>
+  <li>Wen, Q.; Ismail, M.; Abdul Nasir, M. H. (2026). A LSTM-based model predictive control method for unlocking the potential of building energy flexibility in Malaysian commercial buildings. <em>Scientific Reports</em>. <span class="tag">SCIE Q1 · IF 4.9</span> <a class="doi" href="https://doi.org/10.1038/s41598-026-53501-8">doi</a></li>
+  <li>Wen, Q.; Ismail, M.; Abdul Nasir, M. H.; Wu, Y.; Hu, C. (2026). AFLE-HIV: developing an age-friendly living environment assessment framework for elderly HIV-infected individuals in China. <em>BMC Public Health</em>. <span class="tag">SCIE Q1 · IF 4.4</span> <a class="doi" href="https://doi.org/10.1186/s12889-026-27748-9">doi</a></li>
+  <li>Wen, Q.; Ismail, M.; Abdul Nasir, M. H.; Wu, Y. (2026). An older HIV-infected individual-centric framework for age-friendly living environment assessment in China: integrating topic modeling, Delphi consensus, and hierarchical needs analysis. <em>BMC Geriatrics</em>. <span class="tag">SCIE Q1 · IF 4.5</span> <a class="doi" href="https://doi.org/10.1186/s12877-026-08090-6">doi</a></li>
+  <li>Wen, Q.; Zhang, J.; Ismail, M.; Abdul Nasir, M. H.; Wu, Y. (2026). Literature-derived criteria and expert-perceived influence structure for age-friendly living environments among older adults living with HIV in China. <em>Frontiers in Public Health</em>. <span class="tag">SSCI Q1 · IF 4.1</span> <a class="doi" href="https://doi.org/10.3389/fpubh.2026.1873646">doi</a></li>
+  <li>Wen, Q.; Ismail, M.; Abdul Nasir, M. H. (2026). Transforming vacant rural school buildings into age-friendly facilities under China's aging and low-fertility context: a natural language processing-based evaluation framework. <em>BMC Geriatrics</em>. <span class="tag">SCIE Q1 · IF 4.5</span> <a class="doi" href="https://doi.org/10.1186/s12877-025-06772-1">doi</a></li>
+  <li>Wen, Q.; Ismail, M.; Abdul Nasir, M. H. (2025). A community public health emergency resilience assessment framework based on contrastive learning and hyperbolic embedding. <em>Frontiers in Public Health</em>. <span class="tag">SSCI Q1 · IF 4.1</span> <a class="doi" href="https://doi.org/10.3389/fpubh.2025.1651331">doi</a></li>
+  <li>Wen, Q.; Ismail, M.; Abdul Nasir, M. H.; Wu, Y. (2026). Real-world energy efficiency assessment of refrigeration systems in grain storage warehouses: evidence from 65 facilities in Henan Province, China. <em>Scientific Reports</em>. <span class="tag">SCIE Q1 · IF 4.9</span> <a class="doi" href="https://doi.org/10.1038/s41598-026-72539-2">doi</a></li>
+  <li>Wen, Q.; Ismail, M.; Abdul Nasir, M. H.; Wu, Y. (2026). Point-cloud component segmentation for age-friendly home assessment using adapted attention transfer learning. <em>Journal of Big Data</em>. <span class="tag">SCIE Q1 · IF 10.8</span> <span class="meta">accepted; DOI pending</span></li>
+  <li>Wen, Q.; Ismail, M.; Abdul Nasir, M. H.; Wu, Y. (2026). Community assessment for healthy aging in China: an NLP-based multi-criteria framework. <em>Journal of Health, Population and Nutrition</em>. <span class="tag">SCIE Q2 · IF 3.6</span> <span class="meta">accepted 15 November 2026; DOI pending</span></li>
+  <li>Wen, Q.; Ismail, M.; Abdul Nasir, M. H. (2024). Evaluating the residential environment of traditional settlements in northern Jiangxi, China: a multi-dimensional framework. <em>Journal of Construction in Developing Countries</em>, 29(S1). <span class="tag">ESCI Q4</span> <a class="doi" href="https://doi.org/10.21315/jcdc.2024.29.s1.11">doi</a></li>
+  <li>Wen, Q.; Ismail, M.; Abdul Nasir, M. H.; Zhao, J.; Jing, Z. (2025). Assessment and prediction model for community resilience in China based on GANs and random forest regression. <em>Planning Malaysia</em>. <span class="tag">Scopus SJR Q2</span> <a class="doi" href="https://doi.org/10.21837/pm.v23i38.1823">doi</a></li>
+  <li>Wen, Q.; Ismail, M.; Abdul Nasir, M. H.; Zhao, J.; Jing, Z. (2025). Developing a comprehensive framework for assessing community resilience to public health emergencies in Henan Province: insights from SciBERT analysis. <em>Planning Malaysia</em>. <span class="tag">Scopus SJR Q2</span> <a class="doi" href="https://doi.org/10.21837/pm.v23i38.1822">doi</a></li>
+</ol>
 
-  <footer class="site-footer">
-    <span>Wen Quan | Teacher site</span>
-    <span>Last updated: 30 July 2026</span>
-  </footer>
+<h2>Manuscripts under review</h2>
+<ul>
+  <li>Meta-learning framework for healthy aging assessment: attentive neural processes with cross-region generalization within CHARLS. <em>Neural Networks</em> (NEUNET-D-26-01296R1). First and corresponding author.</li>
+  <li>Spatial fall risk prediction in elderly residential environments using 3D point cloud-derived features and ensemble learning with SHAP interpretability. <em>Egyptian Informatics Journal</em> (EGIJ-D-26-00407R1). First and corresponding author.</li>
+  <li>Digital-social connectedness and healthy ageing transitions in a multiple cohort study. <em>npj Digital Medicine</em>. First and corresponding author.</li>
+</ul>
+
+<h2>Selected projects</h2>
+<ul>
+  <li><strong>Age-friendly living environment assessment service</strong> — turns a weighted indicator index into a caregiver-operable tool with versioned scoring rules, offline capture and audit logs. <a class="doi" href="https://wenquan0816.github.io/age-friendly-community-map/">Public demo</a></li>
+  <li><strong>Community resilience assessment (Henan, China)</strong> — SciBERT extraction, GAN and random-forest prediction, Planning Malaysia 2025.</li>
+  <li><strong>Point-cloud home assessment</strong> — component segmentation and transfer learning for home-level compliance checking, Journal of Big Data 2026.</li>
+  <li><strong>Thermal comfort and energy flexibility</strong> — spatiotemporal deep learning in elderly day-care centres; LSTM model predictive control in commercial buildings.</li>
+</ul>
+
+<h2>Funding as Principal Investigator</h2>
+<ul>
+  <li>Aging-in-place renovation of legacy residential communities, Henan Provincial Social Science Research Fund, SKL-2022-608 (2022).</li>
+  <li>Adaptive renovation of long-term care facilities under COVID-19 safety protocols, Henan Provincial Department of Education, 2021-ZDJH-433 (2021).</li>
+  <li>Hospital outpatient interior environments in the telemedicine era, Henan Provincial Social Science Research Fund, SKL-2020-1566 (2020).</li>
+  <li>Integrated healthcare-housing for community senior living, Zhengzhou Federation of Social Sciences, JX20190146 (2018).</li>
+  <li>Universal design for new communities, Henan Provincial Social Science Research Fund, SKL-2018-490 (2018, First Prize).</li>
+</ul>
+
+<h2>Teaching</h2>
+<p>Lecturer, Easton International Art College, Zhengzhou University of Light Industry, 2017–2021 — design studio, architectural history and theory, computer-aided design.</p>
+
+<footer>
+  Quan Wen · wenquan@student.usm.my · Google Scholar and GitHub are the maintained academic profiles.
+</footer>
+
+</div>
 </body>
 </html>
